@@ -5,7 +5,7 @@ export const localVideos = [
   {
     id: 'vid-1',
     title: 'Saponification Reaction - Making Soap',
-    videoPath: 'downloaded videos/CHEMISTRY 1.mp4',
+    videoPath: 'downloaded videos/chemistry 1.mp4',
     category: 'Lab Experiments',
     duration: '03:15',
     views: 'Local',

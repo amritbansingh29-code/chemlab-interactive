@@ -57,7 +57,15 @@ function runPostBuild() {
     // Write to CHEMISTRY PROJECT.html
     fs.writeFileSync(chemistryProjectPath, content, 'utf8');
     console.log(`[Post-build] Updated CHEMISTRY PROJECT.html successfully.`);
-    
+
+    // Copy downloaded videos to dist for live web deployment
+    const videosSource = path.join(process.cwd(), 'downloaded videos');
+    const videosDest = path.join(process.cwd(), 'dist', 'downloaded videos');
+    if (fs.existsSync(videosSource)) {
+      fs.cpSync(videosSource, videosDest, { recursive: true });
+      console.log('[Post-build] Copied downloaded videos to dist.');
+    }
+
     console.log('[Post-build] Build files sync complete!');
   } catch (error) {
     console.error('Post-build script failed:', error);
